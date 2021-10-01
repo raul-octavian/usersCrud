@@ -3,21 +3,8 @@
 spl_autoload_register(function ($class)
 {require_once"classes/".$class.".php";});
 
+$user = new User()
 
-$db = new DbConn();
-$query = $db->dbCon->prepare("SELECT * FROM users_table");
-
-function result_values($query) {
-    if($query->execute()) {
-        $result = $query->fetchAll();
-        return $result;
-    }
-    return "The database did not hold any data";
-
-}
-
-
-$result_var = result_values($query);
 
 ?>
 
@@ -61,7 +48,7 @@ $result_var = result_values($query);
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($result_var as $res): ?>
+    <?php foreach ($user->result_values() as $res): ?>
     <tr>
         <th scope="row"></th>
         <td><?php echo $res['username']?></td>

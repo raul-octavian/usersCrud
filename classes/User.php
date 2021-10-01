@@ -31,6 +31,17 @@ class User
         return $hashed_password;
     }
 
+    public function result_values() {
+
+        $query = $this->db->dbCon->prepare("SELECT * FROM users_table");
+        if($query->execute()) {
+            $result = $query->fetchAll();
+            return $result;
+        }
+        return "The database did not hold any data";
+
+    }
+
     public function createUser($pass, $itr = 15) {
 
 
