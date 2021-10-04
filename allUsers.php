@@ -3,7 +3,8 @@
 spl_autoload_register(function ($class)
 {require_once"classes/".$class.".php";});
 
-$user = new User()
+$user = new User();
+
 
 
 ?>
@@ -48,7 +49,7 @@ $user = new User()
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($user->result_values() as $res): ?>
+    <?php foreach ($user->fetchAllUsers() as $res): ?>
     <tr>
         <th scope="row"></th>
         <td><?php echo $res['username']?></td>
@@ -56,7 +57,7 @@ $user = new User()
         <td><?php echo $res['email']?></td>
         <td><?php echo $res['description']?></td>
 <!--        <td>--><?php //echo $res['ID']?><!--</td>-->
-        <td><a href= "updateUser.php?Id=<?php echo$res['ID'] ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
+        <td><a href= "updateUser.php?id=<?php echo$res['ID'] ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
             <a href= "deleteUser.php?delete=<?php echo $res['ID']?>" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a></td>
     </tr>
     <?php endforeach ?>

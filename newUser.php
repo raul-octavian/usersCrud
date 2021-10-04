@@ -58,7 +58,7 @@ if(isset($_POST['submit'])) {
     <div class="form-row">
         <div class="col-md-5 mb-3">
             <label for="validationDefault03">Email</label>
-            <input type='email' class="form-control" id="validationDefault03" placeholder="City" required name="email">
+            <input type='email' class="form-control" id="validationDefault03" placeholder="email@email.com" required name="email">
         </div>
         <div class="col-md-5 mb-3">
             <label for="validationDefault04">About</label>

@@ -31,11 +31,11 @@ class User
         return $hashed_password;
     }
 
-    public function result_values() {
+    public function fetchAllUsers() {
 
         $query = $this->db->dbCon->prepare("SELECT * FROM users_table");
         if($query->execute()) {
-            $result = $query->fetchAll();
+            $result = $query->fetchall();
             return $result;
         }
         return "The database did not hold any data";
@@ -67,7 +67,6 @@ class User
     }
 
     public function deleteUser($id) {
-        echo $id;
          $query = $this->db->dbCon->prepare("DELETE FROM `users_table` WHERE ID=$id" );
          if($query->execute()) {
              $this->message = "User deleted";
@@ -75,5 +74,70 @@ class User
          } else {
              $this->message = "User could not be deleted";
          }
+    }
+
+    public function fetchUser($id) {
+
+        $query =$this->db->dbCon->prepare(
+            "SELECT username, password, lName, fName, description, email, rank 
+                    FROM `users_table`
+                    WHERE ID = '$id'
+                    ");
+        $result_user = null;
+        if($query->execute()) {
+            $result_user = $query->fetch(PDO::FETCH_ASSOC);
+        }else {
+            $this->message = "the user could not be found";
+            exit;
+        }
+
+        $this->username = $result_user['username'];
+        $this->lName = $result_user['lName'];
+        $this->fName = $result_user['fName'];
+        $this->description =$result_user['description'];
+        $this->email = $result_user['email'];
+        $this->rank = $result_user['rank'];
+
+
+
+        return $result_user;
+    }
+
+    public function updateValues($username, $lName, $fName , $description , $rank , $email, $id ) {
+
+        $this->username = $username;
+        $this->lName = $lName;
+        $this->fName = $fName;
+        $this->description =$description;
+        $this->email = $email;
+        $this->rank = $rank;
+        $ID = $id;
+
+        $query = $this->db->dbCon->prepare("
+                                            UPDATE `users_table` 
+                                            SET 
+                                                username = :username, 
+                                                lName = :lName , 
+                                                fName = :fName, 
+                                                description = :description, 
+                                                email = :email, 
+                                                rank = :rank
+                                            WHERE ID = '$ID'
+                                            ");
+
+        $query->bindValue(':username', $this->username);
+        $query->bindValue(':lName', $this->lName);
+        $query->bindValue(':fName', $this->fName);
+        $query->bindValue(':description', $this->description);
+        $query->bindValue(':email', $this->email);
+        $query->bindValue(':rank', $this->rank);
+
+        if ($query->execute()) {
+            $this->message = "User Updated.";
+        } else {
+            $this->message = "User could not be updated.";
+        }
+
+
     }
 }
