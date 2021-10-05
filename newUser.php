@@ -36,40 +36,42 @@ if(isset($_POST['submit'])) {
     <a href="allUsers.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back to user overview</a>
 </div>
 
-<form action="" method="post">
-    <div class="form-row">
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault01">First name</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="" name="fName" required>
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault02">Last name</label>
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="" name="lName" required >
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefaultUsername">Username</label>
-                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" name="username" required>
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefaultPassword">Password</label>
-            <input type="password" class="form-control" id="validationDefaultPassword" placeholder="Password" aria-describedby="inputGroupPrepend2" name="password" required>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault03">Email</label>
-            <input type='email' class="form-control" id="validationDefault03" placeholder="email@email.com" required name="email">
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault04">About</label>
-            <textarea class="form-control" id="validationDefault04" placeholder="State" required name="description"> </textarea>
-        </div>
-            <input  hidden type="text" class="form-control" id="validationDefault05" placeholder="Zip" required value = 1 name = 'rank'>
+<section class="container">
 
-    </div>
+    <form action="" method="post">
+        <div class="form-row">
+            <div class="col-md-5 mb-3">
+                <label for="validationDefault01">First name</label>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="" name="fName" required>
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="validationDefault02">Last name</label>
+                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="" name="lName" required >
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="validationDefaultUsername">Username</label>
+                    <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" name="username" required>
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="validationDefaultPassword">Password</label>
+                <input type="password" class="form-control" id="validationDefaultPassword" placeholder="Password" aria-describedby="inputGroupPrepend2" name="password" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-5 mb-3">
+                <label for="validationDefault03">Email</label>
+                <input type='email' class="form-control" id="validationDefault03" placeholder="email@email.com" required name="email">
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="validationDefault04">About</label>
+                <textarea class="form-control" id="validationDefault04" placeholder="State" required name="description"> </textarea>
+            </div>
+                <input  hidden type="text" class="form-control" id="validationDefault05" placeholder="Zip" required value = 1 name = 'rank'>
 
-    <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
-</form>
+        </div>
 
+        <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+    </form>
+</section>
 </body>
 </html>

@@ -51,41 +51,41 @@ if (isset($_GET['submit'])) {
     <?php endif  ?>
     <a href="allUsers.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back to user overview</a>
 </div>
-<?php if ($result) {
-     ?>
+<?php if ($result) { ?>
+    <section class="container">
+        <form action="" method="get">
+            <div class="form-row">
+                <div class="col-md-5 mb-3">
+                    <label for="validationDefault01">First name</label>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="<?php echo $result['fName']?>" name="fName" required>
+                </div>
+                <div class="col-md-5 mb-3">
+                    <label for="validationDefault02">Last name</label>
+                    <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="<?php echo $result['lName']?>" name="lName" required >
+                </div>
+                <div class="col-md-5 mb-3">
+                    <label for="validationDefaultUsername">Username</label>
+                    <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" value="<?php echo $result['username']?>" aria-describedby="inputGroupPrepend2" name="username" required>
+                </div>
 
-<form action="" method="get">
-    <div class="form-row">
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault01">First name</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="<?php echo $result['fName']?>" name="fName" required>
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault02">Last name</label>
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="<?php echo $result['lName']?>" name="lName" required >
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefaultUsername">Username</label>
-            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" value="<?php echo $result['username']?>" aria-describedby="inputGroupPrepend2" name="username" required>
-        </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-5 mb-3">
+                    <label for="validationDefault03">Email</label>
+                    <input type='email' class="form-control" id="validationDefault03" placeholder="email" value = "<?php echo $result['email']?>" required name="email">
+                </div>
+                <div class="col-md-5 mb-3">
+                    <label for="validationDefault04">About</label>
+                    <textarea class="form-control" id="validationDefault04" placeholder="State"   name="description"> <?php echo $result['description']?> </textarea>
+                </div>
+                <input  hidden type="text" class="form-control" id="validationDefault06"  required value = 1 name = 'rank'>
+                <input  hidden type="text" class="form-control" id="validationDefault07"  required value = "<?php echo $_GET['id']?>" name = 'id'>
 
-    </div>
-    <div class="form-row">
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault03">Email</label>
-            <input type='email' class="form-control" id="validationDefault03" placeholder="email" value = "<?php echo $result['email']?>" required name="email">
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="validationDefault04">About</label>
-            <textarea class="form-control" id="validationDefault04" placeholder="State"   name="description"> <?php echo $result['description']?> </textarea>
-        </div>
-        <input  hidden type="text" class="form-control" id="validationDefault06"  required value = 1 name = 'rank'>
-        <input  hidden type="text" class="form-control" id="validationDefault07"  required value = "<?php echo $_GET['id']?>" name = 'id'>
+            </div>
 
-    </div>
-
-    <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
-</form>
+            <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+        </form>
+    </section>
 <?php
 }
 ?>

@@ -36,35 +36,35 @@ $user = new User();
 
 <?php endif  ?>
 
+<section class="container">
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">About</th>
+            <th scope="col">Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($user->fetchAllUsers() as $res): ?>
+        <tr>
+            <th scope="row"></th>
+            <td><?php echo $res['username']?></td>
+            <td><?php echo $res['fName'] . " " . $res['lName']?></td>
+            <td><?php echo $res['email']?></td>
+            <td><?php echo $res['description']?></td>
+    <!--        <td>--><?php //echo $res['ID']?><!--</td>-->
+            <td><a href= "updateUser.php?id=<?php echo$res['ID'] ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
+                <a href= "deleteUser.php?delete=<?php echo $res['ID']?>" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a></td>
+        </tr>
+        <?php endforeach ?>
 
-<table class="table">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Username</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">About</th>
-        <th scope="col">Controls</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($user->fetchAllUsers() as $res): ?>
-    <tr>
-        <th scope="row"></th>
-        <td><?php echo $res['username']?></td>
-        <td><?php echo $res['fName'] . " " . $res['lName']?></td>
-        <td><?php echo $res['email']?></td>
-        <td><?php echo $res['description']?></td>
-<!--        <td>--><?php //echo $res['ID']?><!--</td>-->
-        <td><a href= "updateUser.php?id=<?php echo$res['ID'] ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
-            <a href= "deleteUser.php?delete=<?php echo $res['ID']?>" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a></td>
-    </tr>
-    <?php endforeach ?>
-
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+</section>
 </body>
 </html>
 
